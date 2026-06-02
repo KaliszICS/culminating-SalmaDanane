@@ -16,8 +16,8 @@ public class PracticeProblem {
 
 	public static void main(String[] args[]) { // is this technically a function (string[])
 
-		Scanner input = new Scanner(System.in); // input
-		Random r = new Random(); // used to generate a ran numeber
+		Scanner input = new Scanner(System.in); // getting user input
+		Random r = new Random(); // used to generate a random numeber
 
 		// arraylist of words for the user to guess
 		String[] words = {"eagle", "apple", "corny", "quirk", "gnome", "cruet", "okapi"}; // list of a mix of unique and common words, this will be the list of words that the user will have to guess
@@ -28,23 +28,49 @@ public class PracticeProblem {
 		int maxAttempts = 6; // maximume number of attempts user has at guessing the word
 		int picker; // this will be the number used to pick the word in the words list
 		
+		String word2Guess = r.nextInt(7); // function to pick the word - there are 7 word in the wordlist so the num has to be 1-7 inclusive
 
-		String word2Guess = // function to pick the word
+		String userYes; // user input if they want to play the game
 
 		// Game introduction text
 		System.out.println("-----WORDY-----");
 		System.out.println("Welcome to the Wordy game!");
 		System.out.println("-----GAME RULES-----");
-		System.out.println("- Guess the random 5 letter word/n- Only full 5 letter words excepted (no less, no more)/n- No symbols, charactors, or numbers accepted/n- Have fun!")
-		System.out.println("How many rounds would you like to play?");
+		System.out.println("- Guess the random 5 letter word/n- Only full 5 letter words excepted (no less, no more)/n- No symbols, charactors, or numbers accepted/n- Have fun!"); // read proposal for menu
+		System.out.println("Would you like to play? Enter 'yes' or 'no' ");
+		userYes = input.nextLine(); // getting user input, user should say yes to play the game
+
+		userYes = userYes.toLowerCase(); // convert user input to lowercase to compare it to 'yes'
 
 
-		
-	//  start w a if statment - if they want to play run the program, if no ask them again if they want to play
-	// like in problem set unit 4
+		// maybe delete this line - if user doesnt want to play just dont run the code instead of asking them to say yes
+
+		while (userYes != "yes") {  
+          System.out.println("Invalid Input!");
+          System.out.print("");
+          userYes = input.nextInt();
+      }
+
+	  
+
+	  /*
+	For generating word 
+	 
+	 int index = r.nextInt(7)    // to generate a random number from 1-7 (?)
+	 String wordtoguess = words[index]     // arraylist then index of it
+	 
+	  */
+
+	 /* 
+	 for not repeatinh
+	 
+	 */
+
+
 
 
 	   
 
 
 }
+} 
