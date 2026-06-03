@@ -7,12 +7,16 @@
 
 */
 
+// june 3rd change
+
 import java.util.Scanner;
 import java.util.Random;
+
 import java.util.ArrayList;
+Import java.util.HashSet;
 
 
-public class PracticeProblem {
+public class wordyGame {
 
 	public static void main(String[] args[]) { // is this technically a function (string[])
 
@@ -20,7 +24,7 @@ public class PracticeProblem {
 		Random r = new Random(); // used to generate a random numeber
 
 		// arraylist of words for the user to guess
-		String[] words = {"eagle", "apple", "corny", "quirk", "gnome", "cruet", "okapi"}; // list of a mix of unique and common words, this will be the list of words that the user will have to guess
+		String[] words = {"eagle", "apple", "corny", "quirk", "gnome", "cruet", "okapi", "notch"}; // list of a mix of unique and common words, this will be the list of words that the user will have to guess
   
 		// my variables
 
@@ -28,7 +32,7 @@ public class PracticeProblem {
 		int maxAttempts = 6; // maximume number of attempts user has at guessing the word
 		int picker; // this will be the number used to pick the word in the words list
 		
-		String word2Guess = r.nextInt(7); // function to pick the word - there are 7 word in the wordlist so the num has to be 1-7 inclusive
+		String word2Guess = r.nextInt(8); // function to pick the word - there are 8 word in the wordlist so the num has to be 1-7 inclusive
 
 		String userYes; // user input if they want to play the game
 
@@ -41,6 +45,7 @@ public class PracticeProblem {
 		userYes = input.nextLine(); // getting user input, user should say yes to play the game
 
 		userYes = userYes.toLowerCase(); // convert user input to lowercase to compare it to 'yes'
+		userYes = userYes.trim(); // getting rid of un-needed spaces user may have included in word
 
 
 		// maybe delete this line - if user doesnt want to play just dont run the code instead of asking them to say yes
@@ -62,14 +67,14 @@ public class PracticeProblem {
 	  */
 
 	 /* 
-	 for not repeatinh
+	 for not repeating
+
+	 use a hashset to make sure not to repeat the number, if number repeats then break the loop - like if all 8 of generated numbers are eqavalen then  break
 	 
 	 */
 
 
 
-
-	   
 
 
 }
