@@ -8,15 +8,17 @@
 */
 
 /*    SELF NOTES
-
+NEW
 SHORTEN ALL COMMENTS 
 
-think abt graphics (if code is finished on tues) - if i use graphics -> get rid of introduction text
+think abt graphics (if code is finished on tues) - if i use graphics -> get rid of all talking introduction text
 
 either use dictornary or make a super long list of all words i want to use (place at end of code)
 connect AND sinc
 
 put everything in order
+
+use input validation for yes/no (if user wants to play the game)
 
 */
 
@@ -47,17 +49,25 @@ public class Wordy {
 		String word2Guess = r.nextInt(7); // function to pick the word - there are 7 word in the wordlist so the num has to be 1-7 inclusive
 
 		String userYes; // user input if they want to play the game  // nono no
+		String guess; // users guess for the word
 
 		// Game introduction text
 		System.out.println("-----WORDY-----");
 		System.out.println("Welcome to the Wordy game!");
 		System.out.println("-----GAME RULES-----");
-		System.out.println("- Guess the random 5 letter word/n- Only full 5 letter words accepted (no less, no more)/n- No symbols, charactors, or numbers accepted/n- Have fun!"); // read proposal for menu
+		System.out.println("- Guess the random 5 letter word/n- Only full 5 letter words accepted (no less, no more)/n- No symbols, charactors, or numbers accepted/n- Have fun!"); //  display this only if user says yes to wanting to play the game
 		System.out.println("Would you like to play? Enter 'yes' or 'no' ");
 
-		gameStart = input.nextLine(); // getting user input, user should say yes to play the game
         String gameStart = input.nextLine().trim().toLowerCase(); // accepting user input, converting it to lowercase, and getting rid of whitespace all in one line 
 
+		/* if checking user input to start the game
+		    
+		if (!gameStart.matches("[a-zA-Z]")) { // if user input isnt a letter in the alphabet 
+        System.out.println("Invalid input");
+		System.out.println("Would you like to play? Enter 'yes' or 'no' ");
+		gameStart = input.nextLine().trim().toLowerCase();  
+		}
+        */
 
 
 		// end the game  // put this at end of code
@@ -67,34 +77,40 @@ public class Wordy {
         }
 
 
-
-
-
-
-		boolean feen = 3 > 67; // false boolean to start the game
+		boolean feen = 3 > 67; // false boolean to start the game / dont do this
 
          // actual game code starts here
 
-		while (feen == true) { // this is false 2 start the game
+		while (feen == true) { // this doesnt work
 
-			word2Guess = words[r.nextInt(words.length)]; // picking a word from the wordlist
-            boolean correct = false; // boolean for if the player guesses the word right (this will continuesly change througout the game)
+			word2Guess = words[r.nextInt(words.length)]; // picking a word from the wordlist // this doesnt work - go back to random number function
 
-
+            boolean userCorrect = false; // boolean for if the player guesses the word right (this will continuesly change througout the game)
             System.out.println("----- WORDY ROUND ONE -----"); // user message
-
-
 
             for (int attempt = 1; attempt <= maxAttempts; attempt++) { // looping for each of the users attemps until they reach the max attempts (67)
 
                 System.out.print("Attempt " + attempt + ": "); // displaying users round for their attempt
-                String guess = input.nextLine().trim().toLowerCase(); // same function as before, take input, get rid of spaces and put it into lowercase to compare da word
+                guess = input.nextLine().trim().toLowerCase(); // same function as before, take input, get rid of spaces and put it into lowercase to compare da word
 
 			
                 // checking user input to see if its valid
-				if (!guess.matches("[a-zA-Z]{5}")) { // [REGEX function google]  has to be a five letter word that is apart of the alphabet (from a-z or A-Z) // is easier to use than charisletter() function or 2 if statments to see if its 5 letters, and to see if its a valid text input
+				if (!guess.matches("[a-zA-Z]{5}")) { // [REGEX function google]  has to be a five letter word that is apart of the alphabet (from a-z or A-Z) // easier to use than charisletter() function or 2 if statments to see if its 5 letters, and to see if its a valid text input
                     System.out.println("Must enter 5 letters.");
                     attempt--; // take away from the attempt so it doesnt count as part of the users guesses || Decrements/subtracts count back to original number before useres invalid guess
+
+			     // checking if user has guessed the ENTIRE word correctly
+                if (guess.equals(word2Guess)) {
+                    guessedCorrectly = true; // changing the boolean to TRUE
+                    System.out.println("Correct! You guessed the word!");
+                    break; // get out da loop
+                }
+
+				// comapring each of the letters to on another to see if user has guessed correctly // worlde function
+				for (int i = 0; i < 5; i++) { 
+                    char guessChar = guess.charAt(i); // the charactor index/colomn of the word they have guessed
+                    char charGuessWord = word2Guess.charAt(i); 
+				
                     
                 }
 
@@ -122,6 +138,14 @@ public class Wordy {
 
 
 	  /* this is wrong
+
+      picking a random word useing the int function:
+
+	  int randomIndex = r.nextInt(words.length); // dont do this its the same thing
+
+
+
+
 	For generating word 
 	 
 	 int index = r.nextInt(7)    // to generate a random number from 1-7 (?)
@@ -151,3 +175,4 @@ public class Wordy {
 }
 } 
 }
+
