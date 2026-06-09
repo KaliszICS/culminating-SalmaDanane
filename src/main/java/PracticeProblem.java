@@ -7,9 +7,11 @@
 
 */
 
-/*    PERSONAL NOTES
+This doesnt work bro.
 
-SHORTEN ALL COMMENTS !!!
+/*    SELF NOTES
+
+SHORTEN ALL COMMENTS 
 
 think abt graphics (if code is finished on tues) - if i use graphics -> get rid of all talking introduction text
 
@@ -56,6 +58,7 @@ public class Wordy {
 		System.out.println("Welcome to the Wordy game!");
 		System.out.println("-----GAME RULES-----");
 		System.out.println("- Guess the random 5 letter word/n- Only full 5 letter words accepted (no less, no more)/n- No symbols, charactors, or numbers accepted/n- Have fun!"); //  display this only if user says yes to wanting to play the game
+		// add "()", "[]", "{}", "_" to show its placing
 		System.out.println("Would you like to play? Enter 'yes' or 'no' ");
 
         String gameStart = input.nextLine().trim().toLowerCase(); // accepting user input, converting it to lowercase, and getting rid of whitespace all in one line 
@@ -109,25 +112,30 @@ public class Wordy {
 				// comapring each of the letters to on another to see if user has guessed correctly // worlde function
 				for (int i = 0; i < 5; i++) {  
                     char guessChar = guess.charAt(i); // the charactor index/colomn of the word they have guessed
-                    char charWord = word2Guess.charAt(i); 
+                    char charOfWord = word2Guess.charAt(i); 
 
-					// if the user gets the letter right and in the right place/index of the word
-                    if (guessChar == charWord) {
-                        System.out.print("[" + Character.toUpperCase(guessChar) + "]");
+                    if (guessChar == charWord) { // if the user gets the letter right and its also in the right index/place of the word
+                        System.out.print("[" + Character.toUpperCase(guessChar) + "]"); // displaying the users letter guessed w cancatination
                     }
 
-                    // if the user gets the letter in the word right, but in the wrong column/index of the word
-                    //else if (right letter wrong place function (equals place? index of place)){
-                     //   System.out.print("(" + guessChar + ")");
-                    //}
+                    else if (word2Guess.indexOf(guessChar) != -1) { // if user guesses the correct letter but its in the wrong colomn/index
+                        System.out.print("(" + guessChar + ")"); // printing the letter but showing its in the wrong column w camcatination
+                    }
 
-                    // Letter not found in the secret word
-                    //else {
-                     //   System.out.print(" _ "); // the underscore represents missing letters in the actual word ex; apple -> a_ple
-                    //}
+                    else { // if the letter in the users input is just completetly wrong
+                        System.out.print(" _ "); // prints placement and nothing else // showing user if its wrong
+                    }
                 }
 
+                System.out.println();
 
+                // Showing remaining attempts if game is not yet over
+                if (attempt < maxAttempts) { // if they are not out of attempts
+                    System.out.println("Attempts remaining: " + (maxAttempts - attempt)); 
+                }
+
+                System.out.println();
+            }
 
 
 		}
@@ -181,10 +189,6 @@ public class Wordy {
           userYes = input.nextInt();
 
       } */
-
-	   
-
-
 }
 } 
 }
