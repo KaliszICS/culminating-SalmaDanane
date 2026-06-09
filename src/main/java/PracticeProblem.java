@@ -7,9 +7,9 @@
 
 */
 
-/*    SELF NOTES
-NEW
-SHORTEN ALL COMMENTS 
+/*    PERSONAL NOTES
+
+SHORTEN ALL COMMENTS !!!
 
 think abt graphics (if code is finished on tues) - if i use graphics -> get rid of all talking introduction text
 
@@ -107,11 +107,24 @@ public class Wordy {
                 }
 
 				// comapring each of the letters to on another to see if user has guessed correctly // worlde function
-				for (int i = 0; i < 5; i++) { 
+				for (int i = 0; i < 5; i++) {  
                     char guessChar = guess.charAt(i); // the charactor index/colomn of the word they have guessed
-                    char charGuessWord = word2Guess.charAt(i); 
-				
-                    
+                    char charWord = word2Guess.charAt(i); 
+
+					// if the user gets the letter right and in the right place/index of the word
+                    if (guessChar == charWord) {
+                        System.out.print("[" + Character.toUpperCase(guessChar) + "]");
+                    }
+
+                    // if the user gets the letter in the word right, but in the wrong column/index of the word
+                    //else if (right letter wrong place function (equals place? index of place)){
+                     //   System.out.print("(" + guessChar + ")");
+                    //}
+
+                    // Letter not found in the secret word
+                    //else {
+                     //   System.out.print(" _ "); // the underscore represents missing letters in the actual word ex; apple -> a_ple
+                    //}
                 }
 
 
@@ -175,4 +188,3 @@ public class Wordy {
 }
 } 
 }
-
