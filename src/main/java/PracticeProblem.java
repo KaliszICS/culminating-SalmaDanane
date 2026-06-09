@@ -8,7 +8,6 @@
 */
 
 
-
 /*    SELF NOTES
 
 SHORTEN ALL COMMENTS 
@@ -48,7 +47,7 @@ public class Wordy {
 		// int picker; // this will be the number used to pick the word in the words list // dont do dis function
 		String playAgain; // string for if user wants to play wordle again -- this is used on starting line [PLACEHOLDER TEXT] and loops over and is continuely used (until they runout of words)
 		
-		String word2Guess = r.nextInt(7); // function to pick the word - there are 7 word in the wordlist so the num has to be 1-7 inclusive
+		// String word2Guess = r.nextInt(7); // function to pick the word - there are 7 word in the wordlist so the num has to be 1-7 inclusive
 
 		String userYes; // user input if they want to play the game  // nono no
 		String guess; // users guess for the word
@@ -110,7 +109,7 @@ public class Wordy {
                 }
 
 				// comapring each of the letters to on another to see if user has guessed correctly // worlde function
-				for (int i = 0; i < 5; i++) {  
+				for (int i = 0; i < 5; i++) {  // looping over for each letter 
                     char guessChar = guess.charAt(i); // the charactor index/colomn of the word they have guessed
                     char charOfWord = word2Guess.charAt(i); 
 
@@ -123,22 +122,42 @@ public class Wordy {
                     }
 
                     else { // if the letter in the users input is just completetly wrong
-                        System.out.print(" _ "); // prints placement and nothing else // showing user if its wrong
+                        System.out.print(" _ "); // prints placement and nothing else in an index // showing user if its wrong
                     }
                 }
 
-                System.out.println();
-
                 // Showing remaining attempts if game is not yet over
                 if (attempt < maxAttempts) { // if they are not out of attempts
-                    System.out.println("Attempts remaining: " + (maxAttempts - attempt)); 
+                    System.out.println("Attempts remaining: " + (maxAttempts - attempt));  // showing user their attempts remianing
                 }
 
                 System.out.println();
+
+
+             if (guessedCorrectly) {  // message if user guessed the word correctly
+                System.out.println("----------");
+                System.out.println("You guessed the word!");
+				System.out.println("Congrats!");
+                System.out.println("----------");
+            }
+            else {
+                System.out.println("----------"); // message if the user guessed the word incorrectly
+                System.out.println("6/6 attempts have been used. Game over.");
+                System.out.println("The word was: " + word2Guess);
+                System.out.println("----------");
             }
 
 
-		}
+            System.out.print("Play again? Enter 'Yes' or 'no' ");
+            playAgain = input.nextLine().trim().toLowerCase();
+
+        } while (playAgain.equals("yes")); // if they wanna play again then code will loop and they shall play another round
+
+        System.out.println("Thank");
+
+        input.close();
+    }
+}
 
 	 
 		
@@ -189,6 +208,9 @@ public class Wordy {
           userYes = input.nextInt();
 
       } */
+
+	   
+
+
 }
 } 
-}
