@@ -123,17 +123,17 @@ System.out.print(" _ "); // prints placement and nothing else // showing user if
 }
 }
 
-System.out.println();
+System.out.println("");
 
 if (attempt < maxAttempts) { // checking to see if user has any more attempts/guesses left
 System.out.println("Attempts left: "
 + (maxAttempts - attempt)); // subtracting to show amound of messages left for user
 }
 
-System.out.println();
+System.out.println("");
 }
 
-System.out.println();
+System.out.println("");
 
 
 
