@@ -160,3 +160,4 @@ System.out.println("End of Game"); // end of the game
 input.close(); // closing my scanner
 }
 }
+// end of code
