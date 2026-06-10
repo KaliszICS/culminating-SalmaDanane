@@ -10,7 +10,7 @@
 import java.util.Scanner;
 import java.util.Random;
 
-public class Wordy { // this doesnt work
+public class Wordy { 
 
 public static void main(String[] args) {
 
