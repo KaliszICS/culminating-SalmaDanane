@@ -12,10 +12,10 @@
 
 SHORTEN ALL COMMENTS 
 
-think abt graphics (if code is finished on tues) - if i use graphics -> get rid of all talking introduction text
 
-either use dictornary or make a super long list of all words i want to use (place at end of code)
 connect AND sinc
+
+make word list longer
 
 put everything in order
 
@@ -25,8 +25,7 @@ use input validation for yes/no (if user wants to play the game)
 
 import java.util.Scanner;
 import java.util.Random;
-import java.util.ArrayList; 
-
+import java.util.ArrayList; // delete this probably
 
 
 public class Wordy {
@@ -34,9 +33,9 @@ public class Wordy {
 	public static void main(String[] args[]) { 
 
 		Scanner input = new Scanner(System.in); // getting user input
-		Random r = new Random(); // used to generate a random numeber
+		Random r = new Random(); // generate a random numeber
 
-		// arraylist of words for the user to guess // add more words and put this at end of code/ dont put at end of code
+		// list of words for the user to guess
 
 		String[] words = {"eagle", "apple", "corny", "quirk", "party", "gnome", "cruet", "okapi", "birth"}; // list of a mix of unique and common words, this will be the list of words that the user will have to guess
   
@@ -44,13 +43,14 @@ public class Wordy {
 
 		int rounds; // number of rounds user wants to play
 		int maxAttempts = 6; // maximume number of attempts user has at guessing the word
-		// int picker; // this will be the number used to pick the word in the words list // dont do dis function
 		String playAgain; // string for if user wants to play wordle again -- this is used on starting line [PLACEHOLDER TEXT] and loops over and is continuely used (until they runout of words)
 		
-		// String word2Guess = r.nextInt(7); // function to pick the word - there are 7 word in the wordlist so the num has to be 1-7 inclusive
-
 		String userYes; // user input if they want to play the game  // nono no
 		String guess; // users guess for the word
+
+
+
+
 
 		// Game introduction text
 		System.out.println("-----WORDY-----");
@@ -62,6 +62,10 @@ public class Wordy {
 
         String gameStart = input.nextLine().trim().toLowerCase(); // accepting user input, converting it to lowercase, and getting rid of whitespace all in one line 
 
+
+
+
+
 		/* if checking user input to start the game
 		    
 		if (!gameStart.matches("[a-zA-Z]")) { // if user input isnt a letter in the alphabet 
@@ -72,6 +76,10 @@ public class Wordy {
         */
 
 
+
+
+
+
 		// end the game  // put this at end of code
         if (!gameStart.equals("yes")) { // if they dont want to play the game doesn't run at all. if they dont input yes, then game it ends
             input.close(); 
@@ -79,11 +87,9 @@ public class Wordy {
         }
 
 
-		boolean feen = 3 > 67; // false boolean to start the game / dont do this
-
          // actual game code starts here
 
-		while (feen == true) { // this doesnt work
+		do { // this doesnt work
 
 			word2Guess = words[r.nextInt(words.length)]; // picking a word from the wordlist // this doesnt work - go back to random number function
 
@@ -122,95 +128,41 @@ public class Wordy {
                     }
 
                     else { // if the letter in the users input is just completetly wrong
-                        System.out.print(" _ "); // prints placement and nothing else in an index // showing user if its wrong
+                        System.out.print(" _ "); // prints placement and nothing else // showing user if its wrong
                     }
                 }
 
+                System.out.println();
+
                 // Showing remaining attempts if game is not yet over
                 if (attempt < maxAttempts) { // if they are not out of attempts
-                    System.out.println("Attempts remaining: " + (maxAttempts - attempt));  // showing user their attempts remianing
+                    System.out.println("Attempts remaining: " + (maxAttempts - attempt)); 
                 }
 
                 System.out.println();
 
 
-             if (guessedCorrectly) {  // message if user guessed the word correctly
-                System.out.println("----------");
-                System.out.println("You guessed the word!");
-				System.out.println("Congrats!");
-                System.out.println("----------");
-            }
-            else {
-                System.out.println("----------"); // message if the user guessed the word incorrectly
-                System.out.println("6/6 attempts have been used. Game over.");
-                System.out.println("The word was: " + word2Guess);
-                System.out.println("----------");
-            }
 
-
-            System.out.print("Play again? Enter 'Yes' or 'no' ");
-            playAgain = input.nextLine().trim().toLowerCase();
-
-        } while (playAgain.equals("yes")); // if they wanna play again then code will loop and they shall play another round
-
-        System.out.println("Thank");
-
-        input.close();
-    }
+if (guessedCorrectly) { // if guessedCorrectly is true (if they guessed right)
+System.out.println("----------");
+System.out.println("WIN"); // user message if they won
+System.out.println("----------");
+}
+else { // if guessedCorrectly is false (user is wrong)
+System.out.println("----------");
+System.out.println("GAME OVER!");
+System.out.println("The word was: " + word2Guess); // showing user the actual message
+System.out.println("----------");
 }
 
-	 
-		
 
 
+System.out.print("Play again? Enter 'yes' or 'no': ");
+playAgain = input.nextLine().trim().toLowerCase();
 
+} while (playAgain.equals("yes"));  
 
-
-
-
-
-
-
-
-
-
-
-
-
-	  /* this is wrong
-
-      picking a random word useing the int function:
-
-	  int randomIndex = r.nextInt(words.length); // dont do this its the same thing
-
-
-
-
-	For generating word 
-	 
-	 int index = r.nextInt(7)    // to generate a random number from 1-7 (?)
-	 String wordtoguess = words[index]     // arraylist then index of it
-	 
-	  */
-
-	 /* 
-	 for not repeatinh
-	 
-	 */
-
-	 /* perhaps do dis? if you dont want to play wordle just turn of the tab, or dont ask user input to play the game
-
-	 	// maybe delete this line - if user doesnt want to play just dont run the code instead of asking them to say yes
-        for accepting user input to make them play the wordle
-		while (userYes != "yes") {  
-          System.out.println("Invalid Input!");
-          System.out.print("");
-          userYes = input.nextInt();
-
-      } */
-
-	   
-
-
+System.out.println("End of Game"); // end of the game
+input.close(); // closing my scanner
 }
-} 
+}
