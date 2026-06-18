@@ -1,0 +1,12 @@
+K(30%): 98
+I(30%): 87
+C(10%): 100
+A(30%): 87
+
+91.6%
+
+Be careful about input validation for yes and no.  It should re-ask if they put in the wrong word.
+Otherwise a lot of great stuff!
+One thing to be careful for programs such as wordle is that Letters can be used multiple times.
+When they appear once in the word but the person writes it twice, it should only register once. (Green if write spot or yellow once if they are both in wrong spots)
+Only thing to add in the future is only allow them to type valid words.
